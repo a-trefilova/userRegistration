@@ -9,22 +9,29 @@
 import UIKit
 
 class UploadImageViewController: UIViewController {
-
+    
+    @IBOutlet weak var BackBtn: UIButton!
+    @IBOutlet weak var UserPhotoImageView: UIImageView!
+    
+    @IBOutlet weak var BtnOnUserPhoto: UIButton!
+    @IBOutlet weak var SkipBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpUserPhotoImageView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpUserPhotoImageView() {
+        UserPhotoImageView.image = UIImage(named: "iconForIV")
     }
-    */
+    
+    @IBAction func DoneBtnTapped(_ sender: UIButton) {
+       }
 
+    @IBAction func SkipBtnTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func UserPhotoTapped(_ sender: UIButton) {
+    }
 }

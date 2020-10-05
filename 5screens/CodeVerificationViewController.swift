@@ -10,21 +10,63 @@ import UIKit
 
 class CodeVerificationViewController: UIViewController {
 
+    @IBOutlet weak var BackBtn: UIButton!
+    @IBOutlet weak var CodeStackView: UIStackView!
+    @IBOutlet var Code: [UITextField]!
+    
+    @IBOutlet weak var ResentBtn: UIButton!
+    @IBOutlet weak var MinutesLabel: UILabel!
+    @IBOutlet weak var ResendCodeBOTTOMConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpCodeStackView()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpCodeStackView() {
+        CodeStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        for item in Code {
+            item.layer.cornerRadius = 20
+            item.clipsToBounds = true
+            
+        }
+        Code.last?.addTarget(self, action: #selector(CodeVerificationViewController.textFieldDidChange), for: .editingChanged)
     }
-    */
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        performSegue(withIdentifier: "showPersonInfo", sender: self)
+       
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPersonInfo" {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "PersonInfoViewController") as! PersonInfoViewController
+            
+            self.present(vc, animated: true, completion: nil)
+           // self.navigationController?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func BackBtnTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func ResentBtnTapped(_ sender: UIButton) {
+    }
+    
+}
 
+extension CodeVerificationViewController: UITextFieldDelegate {
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        print("did end")
+//        if Code.last?.hasText == true {
+//            performSegue(withIdentifier: "showPersonInfo", sender: self)
+//        }
+    }
+    
+    
 }

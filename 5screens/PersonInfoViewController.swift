@@ -9,22 +9,37 @@
 import UIKit
 
 class PersonInfoViewController: UIViewController {
-
+    
+    @IBOutlet weak var BackBtn: UIButton!
+    
+    @IBOutlet weak var NameTF: UITextField!
+    
+    @IBOutlet weak var BirthdayStackView: UIStackView!
+    
+    @IBOutlet weak var DateTF: UITextField!
+    
+    @IBOutlet weak var ShowDateBtn: UIButton!
+    
+    @IBOutlet weak var NextBtnBOTTOMConstraint: NSLayoutConstraint!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    
+    
+    
+    @IBAction func ShowDateBtnTapped(_ sender: UIButton) {
     }
-    */
-
+    
+    
+    @IBAction func NextBtnTapped(_ sender: UIButton) {
+    }
+    
 }

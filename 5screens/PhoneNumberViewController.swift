@@ -10,21 +10,40 @@ import UIKit
 
 class PhoneNumberViewController: UIViewController {
 
+    @IBOutlet weak var CloseBtn: UIButton!
+    
+    @IBOutlet weak var BcViewForStackView: UIView!
+    
+    @IBOutlet weak var PhoneNumberStackView: UIStackView!
+    
+    @IBOutlet weak var CountryCodeTF: UITextField!
+    
+    @IBOutlet weak var DropDownBtn: UIButton!
+    
+    @IBOutlet weak var PhoneNumberTF: UITextField!
+   
+    @IBOutlet weak var NextBtnBOTTOMConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setUpStackView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpStackView() {
+        PhoneNumberStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        BcViewForStackView.layer.cornerRadius = 20
+        BcViewForStackView.clipsToBounds = true
+        PhoneNumberStackView.clipsToBounds = true
     }
-    */
-
+    
+    private func setUpTextField() {
+        
+    }
+ 
+    
+    @IBAction func CloseBtnTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func NextBtnTapped(_ sender: UIButton) {
+    }
 }

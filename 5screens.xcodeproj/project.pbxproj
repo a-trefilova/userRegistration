@@ -9,21 +9,47 @@
 /* Begin PBXBuildFile section */
 		12AAC71B25221FE2008A74FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC71A25221FE2008A74FE /* AppDelegate.swift */; };
 		12AAC71D25221FE2008A74FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC71C25221FE2008A74FE /* SceneDelegate.swift */; };
-		12AAC71F25221FE2008A74FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC71E25221FE2008A74FE /* ViewController.swift */; };
+		12AAC71F25221FE2008A74FE /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC71E25221FE2008A74FE /* WelcomeViewController.swift */; };
 		12AAC72225221FE2008A74FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC72025221FE2008A74FE /* Main.storyboard */; };
 		12AAC72425221FE7008A74FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC72325221FE7008A74FE /* Assets.xcassets */; };
 		12AAC72725221FE7008A74FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC72525221FE7008A74FE /* LaunchScreen.storyboard */; };
+		12AAC739252220B7008A74FE /* SF-Compact-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC730252220B7008A74FE /* SF-Compact-Rounded-Medium.otf */; };
+		12AAC73A252220B7008A74FE /* SF-Compact-Rounded-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC731252220B7008A74FE /* SF-Compact-Rounded-Heavy.otf */; };
+		12AAC73B252220B7008A74FE /* SF-Compact-Rounded-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC732252220B7008A74FE /* SF-Compact-Rounded-Light.otf */; };
+		12AAC73C252220B7008A74FE /* SF-Compact-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC733252220B7008A74FE /* SF-Compact-Rounded-Regular.otf */; };
+		12AAC73D252220B7008A74FE /* SF-Compact-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC734252220B7008A74FE /* SF-Compact-Rounded-Ultralight.otf */; };
+		12AAC73E252220B7008A74FE /* SF-Compact-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC735252220B7008A74FE /* SF-Compact-Rounded-Semibold.otf */; };
+		12AAC73F252220B7008A74FE /* SF-Compact-Rounded-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC736252220B7008A74FE /* SF-Compact-Rounded-Black.otf */; };
+		12AAC740252220B7008A74FE /* SF-Compact-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC737252220B7008A74FE /* SF-Compact-Rounded-Bold.otf */; };
+		12AAC741252220B7008A74FE /* SF-Compact-Rounded-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 12AAC738252220B7008A74FE /* SF-Compact-Rounded-Thin.otf */; };
+		12AAC74425263388008A74FE /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC74325263388008A74FE /* PhoneNumberViewController.swift */; };
+		12AAC74625266896008A74FE /* CodeVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC74525266896008A74FE /* CodeVerificationViewController.swift */; };
+		12AAC748252711C1008A74FE /* PersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12AAC747252711C1008A74FE /* PersonInfoViewController.swift */; };
+		12CFB0D4252BA0F700C136FF /* UploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12CFB0D3252BA0F700C136FF /* UploadImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		12AAC71725221FE2008A74FE /* 5screens.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5screens.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12AAC71A25221FE2008A74FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12AAC71C25221FE2008A74FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		12AAC71E25221FE2008A74FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		12AAC71E25221FE2008A74FE /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		12AAC72125221FE2008A74FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		12AAC72325221FE7008A74FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12AAC72625221FE7008A74FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12AAC72825221FE7008A74FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12AAC730252220B7008A74FE /* SF-Compact-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		12AAC731252220B7008A74FE /* SF-Compact-Rounded-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Heavy.otf"; sourceTree = "<group>"; };
+		12AAC732252220B7008A74FE /* SF-Compact-Rounded-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Light.otf"; sourceTree = "<group>"; };
+		12AAC733252220B7008A74FE /* SF-Compact-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		12AAC734252220B7008A74FE /* SF-Compact-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		12AAC735252220B7008A74FE /* SF-Compact-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		12AAC736252220B7008A74FE /* SF-Compact-Rounded-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Black.otf"; sourceTree = "<group>"; };
+		12AAC737252220B7008A74FE /* SF-Compact-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		12AAC738252220B7008A74FE /* SF-Compact-Rounded-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact-Rounded-Thin.otf"; sourceTree = "<group>"; };
+		12AAC74325263388008A74FE /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
+		12AAC74525266896008A74FE /* CodeVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerificationViewController.swift; sourceTree = "<group>"; };
+		12AAC747252711C1008A74FE /* PersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewController.swift; sourceTree = "<group>"; };
+		12CFB0D3252BA0F700C136FF /* UploadImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +82,36 @@
 		12AAC71925221FE2008A74FE /* 5screens */ = {
 			isa = PBXGroup;
 			children = (
+				12AAC72F252220B7008A74FE /* SF-Compact-Rounded */,
 				12AAC71A25221FE2008A74FE /* AppDelegate.swift */,
 				12AAC71C25221FE2008A74FE /* SceneDelegate.swift */,
-				12AAC71E25221FE2008A74FE /* ViewController.swift */,
+				12AAC71E25221FE2008A74FE /* WelcomeViewController.swift */,
 				12AAC72025221FE2008A74FE /* Main.storyboard */,
+				12CFB0D3252BA0F700C136FF /* UploadImageViewController.swift */,
+				12AAC747252711C1008A74FE /* PersonInfoViewController.swift */,
+				12AAC74525266896008A74FE /* CodeVerificationViewController.swift */,
+				12AAC74325263388008A74FE /* PhoneNumberViewController.swift */,
 				12AAC72325221FE7008A74FE /* Assets.xcassets */,
 				12AAC72525221FE7008A74FE /* LaunchScreen.storyboard */,
 				12AAC72825221FE7008A74FE /* Info.plist */,
 			);
 			path = 5screens;
+			sourceTree = "<group>";
+		};
+		12AAC72F252220B7008A74FE /* SF-Compact-Rounded */ = {
+			isa = PBXGroup;
+			children = (
+				12AAC730252220B7008A74FE /* SF-Compact-Rounded-Medium.otf */,
+				12AAC731252220B7008A74FE /* SF-Compact-Rounded-Heavy.otf */,
+				12AAC732252220B7008A74FE /* SF-Compact-Rounded-Light.otf */,
+				12AAC733252220B7008A74FE /* SF-Compact-Rounded-Regular.otf */,
+				12AAC734252220B7008A74FE /* SF-Compact-Rounded-Ultralight.otf */,
+				12AAC735252220B7008A74FE /* SF-Compact-Rounded-Semibold.otf */,
+				12AAC736252220B7008A74FE /* SF-Compact-Rounded-Black.otf */,
+				12AAC737252220B7008A74FE /* SF-Compact-Rounded-Bold.otf */,
+				12AAC738252220B7008A74FE /* SF-Compact-Rounded-Thin.otf */,
+			);
+			path = "SF-Compact-Rounded";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +172,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12AAC73E252220B7008A74FE /* SF-Compact-Rounded-Semibold.otf in Resources */,
+				12AAC741252220B7008A74FE /* SF-Compact-Rounded-Thin.otf in Resources */,
+				12AAC73D252220B7008A74FE /* SF-Compact-Rounded-Ultralight.otf in Resources */,
 				12AAC72725221FE7008A74FE /* LaunchScreen.storyboard in Resources */,
+				12AAC739252220B7008A74FE /* SF-Compact-Rounded-Medium.otf in Resources */,
 				12AAC72425221FE7008A74FE /* Assets.xcassets in Resources */,
+				12AAC73B252220B7008A74FE /* SF-Compact-Rounded-Light.otf in Resources */,
+				12AAC73A252220B7008A74FE /* SF-Compact-Rounded-Heavy.otf in Resources */,
 				12AAC72225221FE2008A74FE /* Main.storyboard in Resources */,
+				12AAC73F252220B7008A74FE /* SF-Compact-Rounded-Black.otf in Resources */,
+				12AAC740252220B7008A74FE /* SF-Compact-Rounded-Bold.otf in Resources */,
+				12AAC73C252220B7008A74FE /* SF-Compact-Rounded-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12AAC71F25221FE2008A74FE /* ViewController.swift in Sources */,
+				12CFB0D4252BA0F700C136FF /* UploadImageViewController.swift in Sources */,
+				12AAC74425263388008A74FE /* PhoneNumberViewController.swift in Sources */,
+				12AAC748252711C1008A74FE /* PersonInfoViewController.swift in Sources */,
+				12AAC71F25221FE2008A74FE /* WelcomeViewController.swift in Sources */,
 				12AAC71B25221FE2008A74FE /* AppDelegate.swift in Sources */,
 				12AAC71D25221FE2008A74FE /* SceneDelegate.swift in Sources */,
+				12AAC74625266896008A74FE /* CodeVerificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
