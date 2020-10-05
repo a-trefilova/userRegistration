@@ -15,9 +15,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var TermsPolicyLabel: UILabel!
     
     @IBOutlet weak var CircleBtn: UIButton!
-    
     @IBOutlet weak var SafariBtn: UIButton!
-    
     @IBOutlet weak var HomeBtn: UIButton!
     
     
@@ -27,6 +25,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         createTermsAndPolicyLabel()
+        setUpBottomBtns()
         // Do any additional setup after loading the view.
     }
 
@@ -44,6 +43,26 @@ class WelcomeViewController: UIViewController {
         
     }
     
+    private func setUpBottomBtns() {
+        
+        CircleBtn.setImage(UIImage(systemName: "largecircle.fill.circle"), for: .normal)
+        CircleBtn.contentVerticalAlignment = .fill
+        CircleBtn.contentHorizontalAlignment = .fill
+        CircleBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        CircleBtn.transform = CGAffineTransform(rotationAngle: -23.7)
+        
+        
+        SafariBtn.setImage(UIImage(systemName: "safari.fill"), for: .normal)
+        SafariBtn.contentVerticalAlignment = .fill
+        SafariBtn.contentHorizontalAlignment = .fill
+        SafariBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        
+        HomeBtn.setImage(UIImage(systemName: "house.fill"), for: .normal)
+        HomeBtn.contentVerticalAlignment = .fill
+        HomeBtn.contentHorizontalAlignment = .fill
+        HomeBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        HomeBtn.transform = CGAffineTransform(rotationAngle: 69.3)
+    }
     
     @objc func tapLabel(gesture: UITapGestureRecognizer) {
         if gesture.didTapAtrributedTextInLabel(label: TermsPolicyLabel, inRange: rangeOfFirstLink) {
@@ -58,13 +77,28 @@ class WelcomeViewController: UIViewController {
     
 
     @IBAction func letsGoBtnTapped(_ sender: UIButton) {
-      
-//        performSegue(withIdentifier: "letsgo", sender: nil)
+   
         
     }
     
     
+    @IBAction func FirstBtnTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3, animations: {
+            let increaseValue: CGFloat = 5.0
+            let newFrame = CGRect(x: self.CircleBtn.frame.origin.x, y: self.CircleBtn.frame.origin.y, width: self.CircleBtn.frame.size.width + increaseValue, height: self.CircleBtn.frame.size.height + increaseValue)
+            self.CircleBtn.frame = newFrame
+            self.view.layoutSubviews()
+        }) { (bool) in
+            if bool == true {
+                
+            }
+        }
+    }
+    @IBAction func SecondBtnTapped(_ sender: UIButton) {
+    }
     
+    @IBAction func ThirdBtnTapped(_ sender: UIButton) {
+    }
     
 }
 

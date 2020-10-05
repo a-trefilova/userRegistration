@@ -89,12 +89,14 @@
                                     <constraint firstAttribute="height" constant="50" id="W5v-Qd-9rm"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="safari.fill" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SecondBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zJ-6j-and"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRi-bb-jy1">
                                 <rect key="frame" x="102" y="792" width="50" height="50"/>
@@ -104,12 +106,14 @@
                                     <constraint firstAttribute="height" constant="50" id="cI0-v3-RJ8"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="largecircle.fill.circle" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="FirstBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ml6-fp-r5r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3K-eJ-KTh">
                                 <rect key="frame" x="262" y="792" width="50" height="50"/>
@@ -119,12 +123,14 @@
                                     <constraint firstAttribute="width" constant="50" id="t2g-UG-aKC"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="house.fill" catalog="system"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ThirdBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aBa-mi-Vh7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19700327519999999" green="0.38644945619999999" blue="0.92389929289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -707,9 +713,6 @@
         <image name="ICON" width="120" height="118"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="largecircle.fill.circle" catalog="system" width="128" height="121"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
-        <image name="safari.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
