@@ -15,8 +15,18 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var TermsPolicyLabel: UILabel!
     
     @IBOutlet weak var CircleBtn: UIButton!
+    @IBOutlet weak var circleWidth: NSLayoutConstraint!
+    @IBOutlet weak var circleHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var SafariBtn: UIButton!
+    @IBOutlet weak var safariWidth: NSLayoutConstraint!
+    @IBOutlet weak var safariHeight: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var HomeBtn: UIButton!
+    @IBOutlet weak var homeWidth: NSLayoutConstraint!
+    @IBOutlet weak var homeHeight: NSLayoutConstraint!
     
     
     let rangeOfFirstLink = NSRange(location: 32, length: 5)
@@ -77,27 +87,65 @@ class WelcomeViewController: UIViewController {
     
 
     @IBAction func letsGoBtnTapped(_ sender: UIButton) {
-   
+        let frame = CGRect(x: LetsGoBtn.frame.origin.x,
+                           y: LetsGoBtn.frame.origin.y,
+                           width: LetsGoBtn.frame.size.width - 10,
+                           height: LetsGoBtn.frame.size.height - 10)
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .curveEaseOut], animations: {
+            
+            self.LetsGoBtn.frame = frame
+        }, completion: nil)
         
     }
     
     
     @IBAction func FirstBtnTapped(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3, animations: {
-            let increaseValue: CGFloat = 5.0
-            let newFrame = CGRect(x: self.CircleBtn.frame.origin.x, y: self.CircleBtn.frame.origin.y, width: self.CircleBtn.frame.size.width + increaseValue, height: self.CircleBtn.frame.size.height + increaseValue)
-            self.CircleBtn.frame = newFrame
-            self.view.layoutSubviews()
-        }) { (bool) in
-            if bool == true {
-                
+       
+        
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .curveEaseInOut, .transitionCurlUp], animations: {
+
+            self.circleWidth.constant = self.circleWidth.constant + 10
+            self.circleHeight.constant = self.circleHeight.constant + 10
+            self.CircleBtn.backgroundColor = #colorLiteral(red: 0.1605423391, green: 0.7206415534, blue: 0.9993768334, alpha: 1)
+        }) { (finished) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.circleWidth.constant = self.circleWidth.constant - 10
+                self.circleHeight.constant = self.circleHeight.constant - 10
+                self.CircleBtn.backgroundColor = #colorLiteral(red: 0.4226793051, green: 0.5271993279, blue: 0.8051483035, alpha: 1)
+            }
+            
+        }
+
+    }
+    @IBAction func SecondBtnTapped(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .curveEaseInOut, .transitionCurlUp], animations: {
+
+            self.safariWidth.constant = self.safariWidth.constant + 10
+            self.safariHeight.constant = self.safariHeight.constant + 10
+            self.SafariBtn.backgroundColor = #colorLiteral(red: 0.1605423391, green: 0.7206415534, blue: 0.9993768334, alpha: 1)
+        }) { finished in
+             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.safariWidth.constant = self.safariWidth.constant - 10
+            self.safariHeight.constant = self.safariHeight.constant - 10
+            self.SafariBtn.backgroundColor = #colorLiteral(red: 0.4226793051, green: 0.5271993279, blue: 0.8051483035, alpha: 1)
             }
         }
     }
-    @IBAction func SecondBtnTapped(_ sender: UIButton) {
-    }
     
     @IBAction func ThirdBtnTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: [.allowUserInteraction, .curveEaseInOut, .transitionCurlUp], animations: {
+
+            self.homeWidth.constant = self.homeWidth.constant + 10
+            self.homeHeight.constant = self.homeHeight.constant + 10
+            self.HomeBtn.backgroundColor = #colorLiteral(red: 0.1605423391, green: 0.7206415534, blue: 0.9993768334, alpha: 1)
+        }) { (finished) in
+             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            self.homeWidth.constant = self.homeWidth.constant - 10
+            self.homeHeight.constant = self.homeHeight.constant - 10
+            self.HomeBtn.backgroundColor = #colorLiteral(red: 0.4226793051, green: 0.5271993279, blue: 0.8051483035, alpha: 1)
+            }
+        }
     }
     
 }
