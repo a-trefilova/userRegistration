@@ -28,15 +28,57 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var homeWidth: NSLayoutConstraint!
     @IBOutlet weak var homeHeight: NSLayoutConstraint!
     
-    
+    let arrayOfEmojis: [UIImageView] = [UIImageView(image: UIImage(named: "1sticon")),
+                                        UIImageView(image: UIImage(named: "2ndicon")),
+                                        UIImageView(image: UIImage(named: "3dicon")),
+                                        UIImageView(image: UIImage(named: "5thicon")),]
     let rangeOfFirstLink = NSRange(location: 32, length: 5)
     let rangeOfSecondLink = NSRange(location: 42, length: 14)
+    
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createTermsAndPolicyLabel()
         setUpBottomBtns()
+        createRandomElementsInScreen()
+        //createAnimation()
         // Do any additional setup after loading the view.
+    }
+    
+    private func createAnimation(at pointX: CGFloat, with angle: CGFloat) {
+        let maxY = UIScreen.main.bounds.maxY
+        let element = arrayOfEmojis.randomElement()!
+        element.contentMode = .scaleAspectFit
+        element.frame = CGRect(x: pointX, y: maxY , width: 60, height: 60)
+        let view = UIView(frame: CGRect(x: pointX, y:
+            maxY, width: 60, height: 60))
+        view.addSubview(element)
+        view.bounds = CGRect(x: pointX, y: maxY, width: 60, height: 60)
+        view.transform = CGAffineTransform(rotationAngle: angle)
+        self.view.addSubview(view)
+        
+        UIView.animate(withDuration: 5.0 , delay: 0.3, options: [.curveEaseInOut, .beginFromCurrentState], animations: {
+            view.frame = CGRect(x: pointX, y: UIScreen.main.bounds.minY - 50 , width: 60, height: 60)
+        }, completion: { finished in
+            if finished {
+                view.removeFromSuperview()
+            }
+        })
+        
+        
+    }
+    
+    private func createRandomElementsInScreen() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(creatingEmoji), userInfo: nil, repeats: true)
+    }
+    
+    @objc func creatingEmoji() {
+        let screenWidth = UIScreen.main.bounds.maxX
+        let arrayOfXcoordinates = [screenWidth/2, screenWidth/4, screenWidth - 10, screenWidth - screenWidth/2, screenWidth - screenWidth + 10, screenWidth/3, screenWidth / 1,5]
+        let arrayOfAngles: [CGFloat] = [1.0, 2.0, 3.0, 4.0, 5.0, 10.0]
+        createAnimation(at: arrayOfXcoordinates.randomElement()!, with: arrayOfAngles.randomElement()!)
     }
 
     private func createTermsAndPolicyLabel() {

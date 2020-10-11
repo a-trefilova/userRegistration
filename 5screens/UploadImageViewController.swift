@@ -25,13 +25,19 @@ class UploadImageViewController: UIViewController {
     private func setUpUserPhotoImageView() {
         UserPhotoImageView.image = UIImage(named: "iconForIV")
     }
+    @IBAction func BackBtnTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func DoneBtnTapped(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
        }
 
     @IBAction func SkipBtnTapped(_ sender: UIButton) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func UserPhotoTapped(_ sender: UIButton) {
+        
     }
 }
