@@ -12,6 +12,7 @@ class UploadImageViewController: UIViewController {
     
     @IBOutlet weak var BackBtn: UIButton!
     @IBOutlet weak var UserPhotoImageView: UIImageView!
+    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var BtnOnUserPhoto: UIButton!
     @IBOutlet weak var SkipBtn: UIButton!
     @IBOutlet weak var topConstraintOfBtn: NSLayoutConstraint!
@@ -24,6 +25,7 @@ class UploadImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUserPhotoImageView()
+        doneButton.setTitle("Add Photo", for: .normal)
        // setUpUploadingBtn()
     }
     
@@ -33,6 +35,7 @@ class UploadImageViewController: UIViewController {
     
     private func setUpUploadingBtn() {
         if imageHasBeenUploaded {
+            doneButton.setTitle("Done", for: .normal)
             topConstraintOfBtn.isActive = false
             trailingConstraintOfBtn.isActive = false
             leadingConstaintOfBtn.isActive = false
@@ -53,53 +56,58 @@ class UploadImageViewController: UIViewController {
             BtnOnUserPhoto.clipsToBounds = true
             BtnOnUserPhoto.layer.cornerRadius = 15
         } else {
+            
             BtnOnUserPhoto.titleLabel?.text = ""
             BtnOnUserPhoto.backgroundColor = .clear
         }
     }
+   
     @IBAction func BackBtnTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func DoneBtnTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
-       }
+        if imageHasBeenUploaded {
+            //there could be implementation of saving image 
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            let cameraIcon = UIImage(systemName: "camera")
+            let photoIcon = UIImage(systemName: "folder")
+            let actionSheet = UIAlertController(title: nil,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+            let camera = UIAlertAction(title: "Camera",
+                                        style: .default) {_ in
+                self.chooseImagePicker(source: .camera)
+            }
+            
+            camera.setValue(cameraIcon, forKey: "image")
+            camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+
+            let photo = UIAlertAction(title: "Photo",
+                                      style: .default) {_ in
+                self.chooseImagePicker(source: .photoLibrary)
+            }
+
+            photo.setValue(photoIcon, forKey: "image")
+            photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+            
+            let cancel = UIAlertAction(title: "Cancel",
+                                       style: .cancel)
+
+            actionSheet.addAction(camera)
+            actionSheet.addAction(photo)
+            actionSheet.addAction(cancel)
+
+            present(actionSheet, animated: true)
+        }
+    }
 
     @IBAction func SkipBtnTapped(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    @IBAction func UserPhotoTapped(_ sender: UIButton) {
-        let cameraIcon = UIImage(systemName: "camera")
-        let photoIcon = UIImage(systemName: "folder")
-        let actionSheet = UIAlertController(title: nil,
-                                            message: nil,
-                                            preferredStyle: .actionSheet)
-        let camera = UIAlertAction(title: "Camera",
-                                    style: .default) {_ in
-            self.chooseImagePicker(source: .camera)
-        }
-        
-        camera.setValue(cameraIcon, forKey: "image")
-        camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-
-        let photo = UIAlertAction(title: "Photo",
-                                  style: .default) {_ in
-            self.chooseImagePicker(source: .photoLibrary)
-        }
-
-        photo.setValue(photoIcon, forKey: "image")
-        photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-        
-        let cancel = UIAlertAction(title: "Cancel",
-                                   style: .cancel)
-
-        actionSheet.addAction(camera)
-        actionSheet.addAction(photo)
-        actionSheet.addAction(cancel)
-
-        present(actionSheet, animated: true)
-    }
+    
 }
 
 extension UploadImageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
