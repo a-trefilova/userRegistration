@@ -82,14 +82,10 @@
 		12AAC71925221FE2008A74FE /* 5screens */ = {
 			isa = PBXGroup;
 			children = (
+				12CFB0D52534739400C136FF /* ViewControllers */,
 				12AAC72F252220B7008A74FE /* SF-Compact-Rounded */,
 				12AAC71A25221FE2008A74FE /* AppDelegate.swift */,
 				12AAC71C25221FE2008A74FE /* SceneDelegate.swift */,
-				12AAC71E25221FE2008A74FE /* WelcomeViewController.swift */,
-				12AAC74325263388008A74FE /* PhoneNumberViewController.swift */,
-				12AAC74525266896008A74FE /* CodeVerificationViewController.swift */,
-				12AAC747252711C1008A74FE /* PersonInfoViewController.swift */,
-				12CFB0D3252BA0F700C136FF /* UploadImageViewController.swift */,
 				12AAC72025221FE2008A74FE /* Main.storyboard */,
 				12AAC72325221FE7008A74FE /* Assets.xcassets */,
 				12AAC72525221FE7008A74FE /* LaunchScreen.storyboard */,
@@ -112,6 +108,18 @@
 				12AAC738252220B7008A74FE /* SF-Compact-Rounded-Thin.otf */,
 			);
 			path = "SF-Compact-Rounded";
+			sourceTree = "<group>";
+		};
+		12CFB0D52534739400C136FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				12AAC71E25221FE2008A74FE /* WelcomeViewController.swift */,
+				12AAC74325263388008A74FE /* PhoneNumberViewController.swift */,
+				12AAC74525266896008A74FE /* CodeVerificationViewController.swift */,
+				12AAC747252711C1008A74FE /* PersonInfoViewController.swift */,
+				12CFB0D3252BA0F700C136FF /* UploadImageViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

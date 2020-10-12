@@ -712,6 +712,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN8-Pa-EVh">
                                 <rect key="frame" x="92" y="333" width="230" height="230"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="UserPhotoTapped:" destination="H0m-dc-rw9" eventType="touchUpInside" id="1sf-7a-yUj"/>
                                 </connections>
@@ -743,6 +746,10 @@
                         <outlet property="BtnOnUserPhoto" destination="fN8-Pa-EVh" id="b7b-gu-RMB"/>
                         <outlet property="SkipBtn" destination="uwz-gg-FEO" id="1v3-Sv-9JL"/>
                         <outlet property="UserPhotoImageView" destination="Crt-63-V28" id="j93-0Y-nnr"/>
+                        <outlet property="bottomSonstraintOfBtn" destination="zEF-tn-leB" id="9dB-Jh-etj"/>
+                        <outlet property="leadingConstaintOfBtn" destination="l2z-Ta-JE8" id="9dL-Dh-Qaa"/>
+                        <outlet property="topConstraintOfBtn" destination="xmn-PB-2vM" id="2se-bp-7jH"/>
+                        <outlet property="trailingConstraintOfBtn" destination="RsC-50-Sz2" id="SIt-RD-lg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soX-q2-wcp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

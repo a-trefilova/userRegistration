@@ -11,21 +11,13 @@ import UIKit
 class PersonInfoViewController: UIViewController {
     
     @IBOutlet weak var BackBtn: UIButton!
-    
     @IBOutlet weak var NameTF: UITextField!
     @IBOutlet weak var NameBcView: UIView!
-    
     @IBOutlet weak var BirthdayBcView: UIView!
     @IBOutlet weak var BirthdayStackView: UIStackView!
-    
     @IBOutlet weak var DateTF: UITextField!
-    
     @IBOutlet weak var ShowDateBtn: UIButton!
-    
     @IBOutlet weak var NextBtnBOTTOMConstraint: NSLayoutConstraint!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +25,7 @@ class PersonInfoViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
-    @objc func keyboardWasShown(notification: NSNotification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            self.NextBtnBOTTOMConstraint.constant = keyboardFrame.size.height  - 25
-        })
-    }
+    
     
     private func setUpTextFields() {
         NameTF.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -53,6 +38,15 @@ class PersonInfoViewController: UIViewController {
         BirthdayBcView.layer.cornerRadius = 15
         BirthdayBcView.clipsToBounds = true
         BirthdayStackView.clipsToBounds = true
+    }
+    
+    @objc func keyboardWasShown(notification: NSNotification) {
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            self.NextBtnBOTTOMConstraint.constant = keyboardFrame.size.height  - 25
+        })
     }
     
     @IBAction func BackBtnTapped(_ sender: UIButton) {

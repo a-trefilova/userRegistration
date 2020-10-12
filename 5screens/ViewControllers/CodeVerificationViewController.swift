@@ -26,10 +26,29 @@ class CodeVerificationViewController: UIViewController {
         super.viewDidLoad()
         setUpCodeStackView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerSubtract), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decreaseSeconds), userInfo: nil, repeats: true)
     }
     
-    @objc func onTimerSubtract() {
+    private func setUpCodeStackView() {
+        
+        CodeStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        var itemTag = 0
+        for item in Code {
+            item.delegate = self
+            item.tag = itemTag
+            itemTag += 1
+            
+            item.textContentType = .oneTimeCode
+            item.layer.cornerRadius = 20
+            item.clipsToBounds = true
+            
+        }
+        
+        Code.first?.addTarget(self, action: #selector(CodeVerificationViewController.textFieldDidChange), for: .editingChanged)
+    }
+    
+    @objc func decreaseSeconds() {
         ResentBtn.isUserInteractionEnabled = false
         guard !(timerMinutes == 0 && timerSeconds == 1) else {
             timer?.invalidate()
@@ -60,24 +79,7 @@ class CodeVerificationViewController: UIViewController {
         })
     }
     
-    private func setUpCodeStackView() {
-        
-        CodeStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        var itemTag = 0
-        for item in Code {
-            item.delegate = self
-            item.tag = itemTag
-            itemTag += 1
-            
-            item.textContentType = .oneTimeCode
-            item.layer.cornerRadius = 20
-            item.clipsToBounds = true
-            
-        }
-        
-        Code.last?.addTarget(self, action: #selector(CodeVerificationViewController.textFieldDidChange), for: .editingChanged)
-    }
+    
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -94,26 +96,16 @@ class CodeVerificationViewController: UIViewController {
     @IBAction func ResentBtnTapped(_ sender: UIButton) {
         timerMinutes = 1
         timerSeconds = 60
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerSubtract), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(decreaseSeconds), userInfo: nil, repeats: true)
     }
     
 }
 
 extension CodeVerificationViewController: UITextFieldDelegate {
-    
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        for item in Code {
-//            if item.text?.count == 1 {
-//                item.isUserInteractionEnabled = false
-//            }
-//        }
-//        print("did end")
-//        if Code.last?.hasText == true {
-//            performSegue(withIdentifier: "showPersonInfo", sender: self)
-//        }
-//    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
     //DOESNT WORK
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
             if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
                nextField.becomeFirstResponder()
             } else {
@@ -124,5 +116,6 @@ extension CodeVerificationViewController: UITextFieldDelegate {
             return false
 
     }
+    
     
 }

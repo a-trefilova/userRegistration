@@ -11,37 +11,32 @@ import UIKit
 class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var CloseBtn: UIButton!
-    
     @IBOutlet weak var BcViewForStackView: UIView!
-    
     @IBOutlet weak var PhoneNumberStackView: UIStackView!
-    
     @IBOutlet weak var CountryCodeTF: UITextField!
-    
     @IBOutlet weak var DropDownBtn: UIButton!
-    
     @IBOutlet weak var PhoneNumberTF: UITextField!
-   
     @IBOutlet weak var NextBtnBOTTOMConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardWasShown(notification:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
 
         setUpStackView()
         
     }
    
-    
-    @objc func keyboardWasShown(notification: NSNotification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            self.NextBtnBOTTOMConstraint.constant = keyboardFrame.size.height
-        })
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return false }
+        let newString = (text as NSString).replacingCharacters(in: range, with: string)
+        textField.text = format(with: "XXX-XX-XX", phone: newString)
+        return false
     }
-    
+   
     
     private func setUpStackView() {
         PhoneNumberStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -52,7 +47,9 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func setUpTextField() {
-    textField(PhoneNumberTF, shouldChangeCharactersIn: NSRange(location: 0, length: 9), replacementString: "9")
+        textField(PhoneNumberTF,
+                  shouldChangeCharactersIn: NSRange(location: 0, length: 9),
+                  replacementString: "9")
     }
  
     private func format(with mask: String, phone: String)-> String {
@@ -71,14 +68,16 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
         return result
     }
     
+    @objc func keyboardWasShown(notification: NSNotification) {
+           let info = notification.userInfo!
+           let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
+           UIView.animate(withDuration: 0.1, animations: { () -> Void in
+               self.NextBtnBOTTOMConstraint.constant = keyboardFrame.size.height
+           })
+       }
     
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return false }
-        let newString = (text as NSString).replacingCharacters(in: range, with: string)
-        textField.text = format(with: "XXX-XX-XX", phone: newString)
-        return false
-    }
     
     @IBAction func CloseBtnTapped(_ sender: UIButton) {
         print("CLOSE VC")
@@ -86,5 +85,6 @@ class PhoneNumberViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func NextBtnTapped(_ sender: UIButton) {
+        //implementation of saving phone number and sending a code to user 
     }
 }

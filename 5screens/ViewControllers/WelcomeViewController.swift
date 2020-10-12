@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import WebKit
 
 class WelcomeViewController: UIViewController {
     
+
     @IBOutlet weak var SmileImageBtn: UIButton!
     @IBOutlet weak var LetsGoBtn: UIButton!
     @IBOutlet weak var TermsPolicyLabel: UILabel!
@@ -27,7 +29,8 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var HomeBtn: UIButton!
     @IBOutlet weak var homeWidth: NSLayoutConstraint!
     @IBOutlet weak var homeHeight: NSLayoutConstraint!
-    
+
+
     let arrayOfEmojis: [UIImageView] = [UIImageView(image: UIImage(named: "1sticon")),
                                         UIImageView(image: UIImage(named: "2ndicon")),
                                         UIImageView(image: UIImage(named: "3dicon")),
@@ -42,8 +45,42 @@ class WelcomeViewController: UIViewController {
         createTermsAndPolicyLabel()
         setUpBottomBtns()
         createRandomElementsInScreen()
-        //createAnimation()
-        // Do any additional setup after loading the view.
+    }
+    
+    private func createTermsAndPolicyLabel() {
+        let string = NSAttributedString(string: "By signing up, you agree to our Terms and Privacy Policy", attributes: nil)
+        let attributedString = NSMutableAttributedString(attributedString: string)
+        
+       
+        attributedString.setAttributes([NSAttributedString.Key.font : UIFont(name:"SFCompactRounded-Bold" , size: 15.0)], range: rangeOfFirstLink)
+        attributedString.setAttributes([NSAttributedString.Key.font : UIFont(name:"SFCompactRounded-Bold" , size: 15.0)], range: rangeOfSecondLink)
+        TermsPolicyLabel.numberOfLines = 2
+        TermsPolicyLabel.attributedText = attributedString
+        TermsPolicyLabel.isUserInteractionEnabled = true
+        TermsPolicyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLabel(gesture:))))
+        
+    }
+    
+    private func setUpBottomBtns() {
+        setUpBottomButton(button: CircleBtn, imageName: "largecircle.fill.circle", rotationAngle: -23.7)
+        setUpBottomButton(button: SafariBtn, imageName: "safari.fill", rotationAngle: nil)
+        setUpBottomButton(button: HomeBtn, imageName: "house.fill", rotationAngle: 69.3)
+        
+    }
+    
+    private func createRandomElementsInScreen() {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(creatingEmoji), userInfo: nil, repeats: true)
+    }
+    
+    private func setUpBottomButton(button: UIButton, imageName: String, rotationAngle: CGFloat?) {
+        button.setImage(UIImage(systemName: imageName), for: .normal)
+        button.contentVerticalAlignment = .fill
+        button.contentHorizontalAlignment = .fill
+        button.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        if let rotationAngle = rotationAngle {
+            button.transform = CGAffineTransform(rotationAngle: rotationAngle)
+        }
     }
     
     private func createAnimation(at pointX: CGFloat, with angle: CGFloat) {
@@ -69,10 +106,15 @@ class WelcomeViewController: UIViewController {
         
     }
     
-    private func createRandomElementsInScreen() {
-        
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(creatingEmoji), userInfo: nil, repeats: true)
+    
+    private func createWebView(with url: String) {
+        let webView: WKWebView = WKWebView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        webView.load(URLRequest(url: URL(string: url)!))
+        let vc = UIViewController()
+        vc.view.addSubview(webView)
+        self.navigationController?.present(vc, animated: true, completion: nil)
     }
+    
     
     @objc func creatingEmoji() {
         let screenWidth = UIScreen.main.bounds.maxX
@@ -81,47 +123,15 @@ class WelcomeViewController: UIViewController {
         createAnimation(at: arrayOfXcoordinates.randomElement()!, with: arrayOfAngles.randomElement()!)
     }
 
-    private func createTermsAndPolicyLabel() {
-        let string = NSAttributedString(string: "By signing up, you agree to our Terms and Privacy Policy", attributes: nil)
-        let attributedString = NSMutableAttributedString(attributedString: string)
-        
-       
-        attributedString.setAttributes([NSAttributedString.Key.font : UIFont(name:"SFCompactRounded-Bold" , size: 15.0)], range: rangeOfFirstLink)
-        attributedString.setAttributes([NSAttributedString.Key.font : UIFont(name:"SFCompactRounded-Bold" , size: 15.0)], range: rangeOfSecondLink)
-        TermsPolicyLabel.numberOfLines = 2
-        TermsPolicyLabel.attributedText = attributedString
-        TermsPolicyLabel.isUserInteractionEnabled = true
-        TermsPolicyLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapLabel(gesture:))))
-        
-    }
-    
-    private func setUpBottomBtns() {
-        
-        CircleBtn.setImage(UIImage(systemName: "largecircle.fill.circle"), for: .normal)
-        CircleBtn.contentVerticalAlignment = .fill
-        CircleBtn.contentHorizontalAlignment = .fill
-        CircleBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        CircleBtn.transform = CGAffineTransform(rotationAngle: -23.7)
-        
-        
-        SafariBtn.setImage(UIImage(systemName: "safari.fill"), for: .normal)
-        SafariBtn.contentVerticalAlignment = .fill
-        SafariBtn.contentHorizontalAlignment = .fill
-        SafariBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
-        HomeBtn.setImage(UIImage(systemName: "house.fill"), for: .normal)
-        HomeBtn.contentVerticalAlignment = .fill
-        HomeBtn.contentHorizontalAlignment = .fill
-        HomeBtn.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        HomeBtn.transform = CGAffineTransform(rotationAngle: 69.3)
-    }
-    
     @objc func tapLabel(gesture: UITapGestureRecognizer) {
         if gesture.didTapAtrributedTextInLabel(label: TermsPolicyLabel, inRange: rangeOfFirstLink) {
             print("Tapped targetRange1")
+            createWebView(with: "https://www.apple.com/legal/internet-services/itunes/us/terms.html")
         }
         else if gesture.didTapAtrributedTextInLabel(label: TermsPolicyLabel, inRange: rangeOfSecondLink) {
             print("Tapped targetRange2")
+            createWebView(with: "https://www.apple.com/legal/privacy/en-ww/")
+            
         }
     }
     
